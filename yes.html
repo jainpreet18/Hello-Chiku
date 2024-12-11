@@ -11,7 +11,7 @@
       height: 100vh;
       margin: 0;
       display: flex;
-      flex-direction: column; /* Ensure vertical stacking */
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       overflow: hidden;
@@ -19,8 +19,9 @@
 
     .cloud {
       background: linear-gradient(to bottom right, #F8F5FF, #F3EAF4);
-      width: 500px;
-      padding: 50px;
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
       border-radius: 50%;
       box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
       text-align: center;
@@ -29,11 +30,10 @@
     }
 
     img.image-1 {
-      max-width: 200px;
-      margin-bottom: 20px; /* Add spacing between image and cloud */
+      max-width: 150px;
+      margin-bottom: 20px;
       border-radius: 20px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      padding-bottom: 20px;
     }
 
     @keyframes float {
@@ -45,45 +45,30 @@
       }
     }
 
-    @keyframes morph {
-      0%, 100% {
-        border-radius: 50% 50% 45% 55%;
-      }
-      25% {
-        border-radius: 55% 45% 50% 50%;
-      }
-      50% {
-        border-radius: 50% 50% 55% 45%;
-      }
-      75% {
-        border-radius: 45% 55% 50% 50%;
-      }
-    }
-
     h1 {
-      font-size: 2.2em;
+      font-size: 1.8em;
       color: #5a4f7c;
       text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
     }
 
     p {
-      font-size: 1.3em;
+      font-size: 1.2em;
       margin: 15px 0;
       color: #6d617f;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 20px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
     }
 
     button {
       background: linear-gradient(to right, #6a11cb, #2575fc);
       color: white;
       border: none;
-      padding: 12px 30px;
+      padding: 10px 20px;
       font-size: 1em;
       font-weight: bold;
       border-radius: 30px;
@@ -99,45 +84,33 @@
     #no {
       background: linear-gradient(to right, #f94d6a, #ff6f91);
       color: white;
-      transition: all 0.3s ease-in-out;
     }
 
-    #no:hover {
-      background: linear-gradient(to right, #ff6f91, #ff859e);
-    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
 
-    #yes:focus ~ .hidden {
-      display: block;
-    }
+      .cloud {
+        padding: 20px;
+      }
 
-    .hidden {
-      display: none;
-      margin-top: 20px;
-      text-align: center;
+      button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
     }
   </style>
-  <script>
-    function moveButton() {
-      const noButton = document.getElementById('no');
-      const randomX = Math.random() * 700 - 350; // Subtle horizontal movement
-      const randomY = Math.random() * 450 - 275; // Subtle vertical movement
-      noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    }
-
-    function sayYes() {
-      document.getElementById('thanks').classList.remove('hidden');
-    }
-  </script>
-</head>
+  </head>
 <body>
   <img src="Cool-Cat.png" alt="please" class="image-1" />
   <div class="cloud">
     <h1>So <span id="name-placeholder">Chiku</span>,</h1>
-    <p>I knew you would make the right choice 😎. Now Select a day: </p>
+    <p>I knew you would make the right choice 😎. Now choose a day:</p>
     <div class="buttons">
-      <button id="yes" onclick="location.href='day.html'">Friday</button>
-      <button id="no" onclick="location.href='day.html'">Saturday</button>
+      <button id="yes" onclick="location.href='yes.html'">Friday</button>
+      <button id="no" onclick="location.href='yes.html'">Saturday</button>
     </div>
-    </div>
+  </div>
 </body>
 </html>
